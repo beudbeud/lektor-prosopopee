@@ -1,0 +1,38 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ '/static/css/style.css'|url }}">
+{% block link %}
+{% endblock %}
+<title>{{ bag('main', 'name') }}</title>
+<body>
+    <header>
+        <div class=gallery-header>
+            {% block logo %}
+            <img id="logo" src="{{'/static/img/logo.svg'|url}}"/>
+            {% endblock %}
+            <h1>{{ bag('main', 'name') }}</h1>
+            <h4>{{ bag('main', 'desc') }}</h4>
+            <nav>
+                <div class=nav-wrapper>
+                    <ul>
+                        {% for path, label in bag('main-nav').iteritems() %}
+                        <li>
+                            {%- if loop.first -%}
+                            <a href="{{ path|url }}" class="first-item-menu">{{ label }}</a>
+                            {% else %}
+                            <a href="{{ path|url }}" class="item-menu">{{ label }}</a>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="page">
+        {% block body %}{% endblock %}
+    </div>
+    {% block js %}{% endblock %}
+    <footer>
+        &copy; Copyright 2016 by Beudbeud.
+    </footer>
+</body>

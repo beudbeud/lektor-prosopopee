@@ -1,0 +1,16 @@
+{% extends "layout-gallery.html" %}
+{% from 'macros/blocksupport.html' import render_full_width_blocks %}
+{% block title %}{{ this.name }} ({{ this.date }}){% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ '/static/css/fonts.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/style-page.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/baguetteBox.min.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/panorama_viewer.css'|url }}"/>
+{% endblock %}
+
+
+
+{% block bodyclass %}poster{% endblock %}
+{% block outerbody %}
+{{ render_full_width_blocks(this.body.blocks) }}
+{% endblock %}

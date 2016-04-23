@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+{% block link %}
+<link rel="stylesheet" href="{{ '/static/css/fonts.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/style-page.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/baguetteBox.min.css'|url }}"/>
+<link rel="stylesheet" href="{{ '/static/css/panorama_viewer.css'|url }}"/>
+{% endblock %}
+<section class="text">
+  <h2>{{ this.title }}</h2>
+</section>
+
+<section class="paragraph">
+    {{ this.body }}
+</section>
+
+<div class="back-to-home">
+  <hr>
+  <a href="../index.html">
+      <div id="logo" src="../static/img/logo.svg"/>
+          HOME
+      </div>
+  </a>
+</div>
+
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js" charset="utf-8"></script>
+
+{% endblock %}

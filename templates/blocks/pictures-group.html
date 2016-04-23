@@ -1,0 +1,23 @@
+<section class="pictures-group baguette">
+    {% for line in this.lines.blocks %}
+    <div class="pictures-line">
+        {% for slide in line.slides.blocks %}
+        {% set caption = slide.description %}
+        {% set image = slide.image %}
+        <div class="picture caption">
+            <a href="{{ image|url }}" {% if caption %}data-caption="{{ caption }}"{% endif %}>
+                <img src="{{ image|url }}">
+                {% if caption %}
+                <div class="caption__overlay">
+                    <h5 class="caption__overlay__title">{{ caption }}</h5>
+                </div>
+                {% endif %}
+            </a>
+        </div>
+        {% if not loop.last %}
+        <div class="separator"></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>

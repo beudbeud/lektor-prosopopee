@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ '/static/css/style.css'|url }}">
+{% block link %}
+{% endblock %}
+<title>{% block title %}{% endblock %}</title>
+<body>
+
+    {% block outerbody %}
+    {% block body %}{% endblock %}
+    {% endblock %}
+
+    <div class="back-to-home">
+        <hr>
+        <a href="../">
+            <div id="logo" src="{{ '/static/img/logo.svg'|url }}"/>
+                HOME
+            </div>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="{{ '/static/js/jquery-2.1.4.min.js'|url }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ '/static/js/baguetteBox.min.js'|url }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ '/static/js/jquery.panorama_viewer.min.js'|url }}" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+$(function() {
+    baguetteBox.run(".baguette", {});
+    $(".panorama").panorama_viewer({
+        repeat: true,
+        direction: "horizontal",
+        animationTime: 150,
+        easing: "linear",
+        overlay: true
+    });
+});
+    </script>
+
+    <footer>
+        &copy; Copyright 2016 by Beudbeud.
+    </footer>
+</body>

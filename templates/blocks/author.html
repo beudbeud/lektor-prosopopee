@@ -1,0 +1,33 @@
+{% set image = record.attachments.get(this.image) %}
+<div class="author">
+    <img src={{ image.thumbnail(200)|url }} alt="" class="circle">
+    <div>
+        <span class=author-meta>Story by</span>
+        <h4>{{ this.name }}</h4>
+        {% if this.text %}
+        <div class=desc>{{ this.text }}</div>
+        {% endif %}
+    </div>
+    <div class="separator"></div>
+    <div>
+        {% if this.facebook %}
+        <span>
+            <a href="http://facebook.com/{{ this.facebook }}">Facebook</a>
+        </span>
+        <span> | </span>
+        {% endif %}
+        {% if this.twitter %}
+        <span>
+            <a href="http://twitter.com/{{ this.twitter }}">Twitter</a>
+        </span>
+        <span> | </span>
+        {% endif %}
+        {% if this.website %}
+        <span>
+            <a href="{{ this.sebsite }}">{{ this.website }}</a>
+        </span>
+        {% endif %}
+    </div>
+</div>
+</div>
+

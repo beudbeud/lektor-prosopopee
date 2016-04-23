@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Projects{% endblock %}
+{% block body %}
+<div class="galleries-grid">
+    {% for galleries_line in this.children|batch(3) %}
+    <div class="galleries-line covers-{{ galleries_line|length }}">
+        {% for project in galleries_line %}<!-- comment tricks against space between inline-block
+        --><div class="gallery-square">
+            {% set cover = project.attachments.images.get(project.image) %}
+            <a href="{{ project|url }}">
+                <div class="gallery-title">
+                    <h2>{{ project.name }}</h2>
+                    {% if project.subtitle %}
+                    <h3>{{ project.subtitle }}</h3>{% endif %}
+                    {% if project.date %}
+                    <div class="gallery-datetime">{{ project.date }}</div>{% endif %}
+                </div>
+            </a>
+            <div class="gallery-cover" style="background-image: url('{{ cover.thumbnail(900)|url }}');"></div>
+        </div><!-- comment tricks against space between inline-block
+        -->{% endfor %}
+    </div>
+    {% endfor %}
+</div>
+<p style="visibility: hidden">.</p>
+{% endblock %}

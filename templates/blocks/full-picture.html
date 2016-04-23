@@ -1,0 +1,18 @@
+{% set image = record.attachments.get(this.image) %}
+<section class="full-picture" style="background: transparent url('{{ image|url }}') no-repeat scroll center top / cover;">
+    {% if this.title or this.subtitle or this.date %}
+    <div class="picture-text">
+        <div class="picture-text-column">
+            <h1>{{ this.title }}</h1>
+            <h2>{{ this.subtitle }}</h2>
+            {% if this.date_end %}
+            <div class="datetime">{{ this.date.strftime("%d %B %Y") }}  to {{ this.date_end.strftime("%d %B %Y") }}</div>
+            {% else %}
+            {% if this.date %}
+            <div class="datetime">{{ this.date.strftime("%d %B %Y") }}</div>{% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</section>
+

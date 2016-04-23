@@ -1,0 +1,15 @@
+{% set image = record.attachments.get(this.image) %}
+{% set caption = this.caption %}
+<section class="bordered-picture baguette">
+    <div class="caption">
+        <a href="{{ image|url }}" {% if caption %}data-caption="{{ caption }}"{% endif %}">
+            <img src="{{ image|url }}">
+            {% if caption %}
+            <div class="caption__overlay">
+                <h5 class="caption__overlay__title">{{ caption }}</h5>
+            </div>
+            {% endif %}
+    </div>
+        </a>
+</section>
+
