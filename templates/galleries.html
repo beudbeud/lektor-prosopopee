@@ -2,7 +2,7 @@
 {% block title %}Projects{% endblock %}
 {% block body %}
 <div class="galleries-grid">
-    {% for galleries_line in this.children|batch(3) %}
+    {% for galleries_line in this.children.filter(F._model == 'gallery')|batch(3) %}
     <div class="galleries-line covers-{{ galleries_line|length }}">
         {% for project in galleries_line %}<!-- comment tricks against space between inline-block
         --><div class="gallery-square">

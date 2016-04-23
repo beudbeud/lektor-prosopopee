@@ -1,9 +1,5 @@
-title: Welcome!
----
-body: some Text
----
-_discoverable: no
----
-_template: page.html
+_template: galleries.html
 ---
 _hidden: no
+---
+_model: galleries
