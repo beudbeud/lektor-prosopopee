@@ -11,6 +11,7 @@
             {% endblock %}
             <h1>{{ bag('main', 'name') }}</h1>
             <h4>{{ bag('main', 'desc') }}</h4>
+            {% if bag('main-nav') %}
             <nav>
                 <div class=nav-wrapper>
                     <ul>
@@ -26,6 +27,7 @@
                     </ul>
                 </div>
             </nav>
+            {% endif %}
         </div>
     </header>
     <div class="page">
